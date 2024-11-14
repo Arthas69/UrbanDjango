@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from task2.views import HomePageView, function_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('class/', HomePageView.as_view()),
+    path('function/', function_view)
 ]
