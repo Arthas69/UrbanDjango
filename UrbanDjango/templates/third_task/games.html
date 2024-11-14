@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Игры</h1>
+    <ul>
+        {% for game in games %}
+            <li><a href="#">{{ game }}</a><button>Купить</button></li>
+        {% endfor %}
+    </ul>
+    <form action="/platform">
+        <button>Вернуться назад</button>
+    </form>
+</body>
+</html>

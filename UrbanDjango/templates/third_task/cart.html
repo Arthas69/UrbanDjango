@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if cart %}
+        <h1>Корзина</h1>
+        <ul>
+            {% for item in cart %}
+                <li>{{ item.title }} - {{ item.price }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h1>Корзина пуста</h1>
+    {% endif %}
+    <form action="/platform">
+        <button>Вернуться назад</button>
+    </form>
+</body>
+</html>
