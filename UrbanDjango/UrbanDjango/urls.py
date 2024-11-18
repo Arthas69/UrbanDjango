@@ -19,9 +19,12 @@ from django.urls import path
 
 from task2.views import HomePageView, function_view
 from task4.views import platform, games, cart
+from task5.views import sign_up_by_django, sign_up_by_html
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', sign_up_by_html),
+    path('django_sign_up', sign_up_by_django),
     path('class/', HomePageView.as_view()),
     path('function/', function_view),
     path('platform/', platform),

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Регистрация</h1>
+{% if reg_type == "django" %}
+    <form method="post" action="/django_sign_up">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+{% else %}
+    <form method="post" action="/">
+        {% csrf_token %}
+        <label for="username">Введите логин:</label>
+        <input type="text" name="username" maxlength=30 required>
+        <label for="password">Введите пароль:</label>
+        <input type="password" name="password" minlength=8 required>
+        <label for="repeat_password">Повторите пароль:</label>
+        <input type="password" name="repeat_password" minlength=8 required>
+        <label for="age">Введите свой возраст:</label>
+        <input type="number" name="age" min=18 max=100 value=18>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+{% endif %}
+{% if errors %}
+    {% for error in errors %}
+        <p>{{ error }}</p>
+    {% endfor %}
+{% endif %}
+{% if success %}
+    <p>{{ success }}</p>
+{% endif %}
+</body>
+</html>
